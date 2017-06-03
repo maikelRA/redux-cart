@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: hsla(180, 20%, 60%, 1);
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font: 100%/2 'Fira Code', monospace;
+}
+
+.products{
+  display: flex;
+  flex-direction: row;
+}
+
+.App > *, .products > * {
+  text-align: center;
+  margin: 1rem;
+}
+
+.input{
+  border-radius: 5px;
+  padding: 4px;
+  border: 1px solid hsla(0, 60%, 60%, 1);
+  transition: all 200ms ease;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: hsla(0, 30%, 30%, 1);
+}
+
+button{
+  display: block;
+  border: none;
+  background: none;
+}
+
+button:focus{
+  outline: none;
+}
+
+.button{
+  font-family: 'Fira Code', monospace;
+  background-color: hsla(0, 30%, 60%, 1);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
