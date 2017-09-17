@@ -24,6 +24,33 @@ yarn # npm i
   &nbsp;&nbsp; L :open_file_folder: `styles` - Styling
 
   &nbsp;&nbsp; `index.js` - Our entrypoint as usual
+  
+## `combineReducers`
+
+A big change here is that we are using multiple parts of the state. We now have both `cart` and `products` in our `state`-object. Both of these are different reducers. We merge the state by calling `combineReducers`. Which just puts everything in the same state.
+
+```js
+import { combineReducers } from 'redux';
+import cart from './cartReducer';
+import products from './productsReducer';
+
+/**
+ * If we need more 'slices' of state. If we have both `products` and `cart` in our 
+ * redux state, we need to combine these. There is a built in method in redux for this
+ * Import your two reducers: cart and products and combine them to ONE state object. Then export it
+ * this rootReducer will be imported in 'store/index.js'
+ */
+const rootReducer = combineReducers({
+    cart,
+    products,
+});
+
+/* If we would create the store on the spot:
+ * const store = createStore(rootReducer);
+ */
+
+export default rootReducer;
+```
 
 ## Redux DevTools
 
