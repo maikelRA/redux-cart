@@ -1,8 +1,10 @@
-//InitialState is an object with all our empty state, in this case we have
-//an empty cart []
 import initialState from './initialState';
 
-export default(state = initialState.cart, action) => {
+/**
+ * Takes an empty array as initial state, then like the todo-example: either spreads
+ * and adds a new item to the cart array, or removes the object with the specified ID
+ */
+export default function cart(state = initialState.cart, action) {
     switch (action.type) {
         case 'ADD':
             //If 'ADD' from 'cartActions.js', spread the previous state, and

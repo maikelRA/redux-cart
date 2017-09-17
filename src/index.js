@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 
 import { Provider } from 'react-redux';
+//We import the configure store function that handles creating the store for us.
 import Store from './store/configureStore';
 
+//When it is imported we call it to create the actual store based on our reducers. This is also
+//so we don't have to import our reducers in this file.
 const store = Store();
 const mountPoint = document.getElementById('root')
 

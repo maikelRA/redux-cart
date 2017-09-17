@@ -1,12 +1,17 @@
 import { createStore } from 'redux';
+//Import our rootreducer from '../reducers/index.js' this hold our whole state
 import rootReducer from  '../reducers';
 
-//Takes our reducers and send along to the store, the store
-//is all knowing and all powerful and has every state
-export default(initialState) => {
+/**
+ * When we call this function we return a created store with our reducers, so this is the same
+ * as calling `const store = createStore(reducer)`. We have extracted it to a separate file. This function
+ * gets called in 'index.js'. The second argument to 'createStore' is so we can use Redux DevTools
+ * in our browser for easier debugging. Super cool!
+ * @param {Object} initialState 
+ */
+export default function store() {
     return createStore(
-      rootReducer, 
-      initialState,
+      rootReducer,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
 }

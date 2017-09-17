@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import Cart from './Cart';
 import Products from './Products';
-import './App.css';
+import Cart from './Cart';
+import '../styles/App.css';
 
-//App isn't connected, it just renders the two connected components
+/**
+ * We could choose to connect the App component or not. It depends on what you want to do,
+ * in this example we choose to connect the two components below to illustrate how we can connect
+ * multiple component to the same store and data. So this component is "regular".
+ */
 class App extends Component {
   render() {   
     return (

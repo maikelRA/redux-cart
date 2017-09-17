@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as cartActions from '../actions/cartActions';
+import { addToCart } from '../actions/cartActions';
 
 class Products extends Component {
 
   render() {
-    //ES6 desctructuring from props
-    const { actions, products } = this.props;
-    const productList = products.map( (item,index)  => {
-
-      //React needs a key for your children
+    const productList = this.props.products.map( (item,index)  => {
       return <div key={index}> 
-        { item.name } 
+        <p style={{ color: "#767676"}}>{item.name} - {item.price} $ </p>
         <button className="button"
-                //this.props.actions.addToCart from 'mapDispatchToProps' further down
-                onClick={() => actions.addToCart(item)}>
+                onClick={() => this.props.addToCart(item)}>
           Add To Cart
         </button> 
       </div>
@@ -29,23 +24,18 @@ class Products extends Component {
   }
 }
 
-//Take the state from the store and pass it to the connected container
-//now we can reference this.props.products 
 function mapStateToProps(state, props) {
     return {
         products: state.products
     };
 }
 
-//Bind all our actions in 'cartActions.js' to 'this.props.actions'
-//so it can be used in the component
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(cartActions, dispatch)
+        addToCart: item => dispatch(addToCart(item))
     }
 }
 
-//Export a connected component with react-redux 'connect', send along
-//your mapped state and dispatch
+
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
 

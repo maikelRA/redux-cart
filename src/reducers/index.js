@@ -2,10 +2,12 @@ import { combineReducers } from 'redux';
 import cart from './cartReducer';
 import products from './productsReducer';
 
-//We have to have a root reducer that takes all our reducers and
-//send them along to the store. So these imports from our different
-//reducers  becomes 'this.props.cart' and 'this.props.products' 
-//in our connected components
+/**
+ * If we need more 'slices' of state. If we have both `products` and `cart` in our 
+ * redux state, we need to combine these. There is a built in method in redux for this
+ * Import your two reducers: cart and products and combine them to ONE state object. Then export it
+ * this rootReducer will be imported in 'store/configureStore.js'
+ */
 const rootReducer = combineReducers({
     cart,
     products,

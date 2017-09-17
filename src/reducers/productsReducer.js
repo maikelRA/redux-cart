@@ -1,7 +1,11 @@
 import initialState from './initialState';
 
-//Just returns the default products so we have something to work on
-//this could also call an API and get an array of products
-export default(state = initialState.products, action) => {
+/**
+ * This is so we could extend the product array of the state,
+ * this reducer takes the products array from 'initialState.js'
+ * and returns it, nothing more. Not listening to any actions
+ * at the moment. This will populate the state
+ */
+export default function products(state = initialState.products, action){
      return state;
 };
