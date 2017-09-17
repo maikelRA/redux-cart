@@ -9,7 +9,7 @@ export default {
     {
       id: 1,
       name: "Redux",
-      price: 100000
+      price: 100000,
     },
     {
       id: 2,
@@ -21,5 +21,6 @@ export default {
       name: "Redux DevTools",
       price: 10
     }
-  ]
+  ],
+  user: {}
 }

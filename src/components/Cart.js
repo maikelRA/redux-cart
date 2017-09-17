@@ -11,6 +11,7 @@ class Cart extends Component {
     const cartList = this.props.cart.map(( item, index) =>{
       return <div key={index}> 
         <p style={{ color: "#767676"}}>{item.name} - {item.price} $ </p>
+        <p style={{ color: "#767676"}}>{item.quantity} </p>
         <button className="button" 
                 onClick={ () => this.props.removeFromCart(item)} > 
           Remove 

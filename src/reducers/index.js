@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import cart from './cartReducer';
 import products from './productsReducer';
+import user from './userReducer'; //import the new reducer!
 
 /**
  * If we need more 'slices' of state. If we have both `products` and `cart` in our 
@@ -11,6 +12,7 @@ import products from './productsReducer';
 const rootReducer = combineReducers({
     cart,
     products,
+    user //Remember to add the user reducer to the state!!
 });
 
 export default rootReducer;

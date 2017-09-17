@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
+import { signIn, signOut} from '../actions/userActions';
+import LoginForm from './LoginForm';
 
 class Products extends Component {
 
@@ -19,23 +21,36 @@ class Products extends Component {
       </div>
     });
 
+    //LoginForm is malplaced and ugly, but you get the idea! Hopefully... 
     return (
       <div className= "products">
+        <LoginForm signIn={this.props.signIn} signOut={this.props.signOut}/>
          { productList }
       </div>
     );
   }
 }
 
-function mapStateToProps(state, props) {
+/**
+ * The user state should really be in for example App.js. The user and the login
+ * is not bound to the "Products" component. But I put it here to exemplify that
+ * you can have multiple actions that refer to different reducers in the same
+ * connected component. Also this is an example of how you can refer to different
+ * parts of the state, state.user and state.products for example
+ * @param {Object} state 
+ */
+function mapStateToProps(state) {
     return {
-        products: state.products
+        products: state.products,
+        user: state.user
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        addToCart: item => dispatch(addToCart(item))
+        addToCart: item => dispatch(addToCart(item)),
+        signIn: user => dispatch(signIn(user)),
+        signOut: () => dispatch(signOut())
     }
 }
 
