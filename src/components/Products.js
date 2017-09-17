@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
 
 class Products extends Component {
 
   render() {
+    /**
+     * this.props.products is populated through the redux store and mapStateToProps
+     * this.props.addToCart is added through mapDispatchToProps
+     */
     const productList = this.props.products.map( (item,index)  => {
       return <div key={index}> 
         <p style={{ color: "#767676"}}>{item.name} - {item.price} $ </p>

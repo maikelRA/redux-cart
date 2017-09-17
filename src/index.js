@@ -4,7 +4,7 @@ import App from './components/App';
 
 import { Provider } from 'react-redux';
 //We import the configure store function that handles creating the store for us.
-import Store from './store/configureStore';
+import Store from './store';
 
 //When it is imported we call it to create the actual store based on our reducers. This is also
 //so we don't have to import our reducers in this file.

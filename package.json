@@ -20,5 +20,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://jesperorb.github.io/redux-cart"
+  "homepage": "https://jesperorb.github.io/redux-cart",
+  "license": "MIT"
 }

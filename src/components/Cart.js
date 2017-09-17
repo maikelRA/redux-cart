@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../actions/cartActions';
 
 class Cart extends Component {
   render() {
+    /**
+     * this.props.cart is populated through the redux store and mapStateToProps
+     * this.props.removeFromCart is added through mapDispatchToProps
+     */
     const cartList = this.props.cart.map(( item, index) =>{
       return <div key={index}> 
         <p style={{ color: "#767676"}}>{item.name} - {item.price} $ </p>
